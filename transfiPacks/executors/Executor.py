@@ -16,7 +16,7 @@ class BigQueryExecutor(BigQueryConfig):
 
     def leecher(self):
         sql = self.get_sql()
-        df = self.con.query(sql)
+        df = self.con.query(sql).to_dataframe()
         return df
 
 
@@ -31,7 +31,8 @@ class SnowflakeExecutor(SnowflakeConfig):
     def leecher(self):
         sql = self.get_sql()
         cur = self.con.cur()
-        df = cur.execute(sql)
+        cur.execute(sql)
+        df = cur.fetch_pandas_all()
         return df
 
 
