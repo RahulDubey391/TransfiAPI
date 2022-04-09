@@ -1,1 +1,1 @@
-from .config import SnowflakeConfig,SalesForceConfig,BigQueryConfig
+#from .config import SnowflakeConfig,SalesForceConfig,BigQueryConfig

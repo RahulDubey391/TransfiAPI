@@ -1,4 +1,4 @@
-from ..config.config import BigQueryConfig,SnowflakeConfig,SalesForceConfig
+from transfiPacks.config.config import BigQueryConfig,SnowflakeConfig,SalesForceConfig
 import os
 import pandas as pd
 import pandas_gbq
@@ -30,9 +30,7 @@ class SnowflakeExecutor(SnowflakeConfig):
 
     def leecher(self):
         sql = self.get_sql()
-        cur = self.con.cur()
-        cur.execute(sql)
-        df = cur.fetch_pandas_all()
+        df = pd.read_sql(sql,self.con)
         return df
 
 

@@ -6,6 +6,8 @@ class SnowflakeConfig:
     def __init__(self,configDict):
         self.sflkconfigDict = configDict['Snowflake']
         self.sflk_conn_id = self.sflkconfigDict['conn_id']
+        self.warehouse = self.sflkconfigDict['warehouse']
+        self.role = self.sflkconfigDict['role']
         self.database_name = self.sflkconfigDict['database_name']
         self.schema_name = self.sflkconfigDict['schema_name']
         self.table_name = self.sflkconfigDict['table_name']
@@ -18,7 +20,10 @@ class SnowflakeConfig:
 
     def get_con(self):
         return SnowflakeHook(snowflake_conn_id=self.sflk_conn_id,
-                                database=self.database_name)
+                             warehouse=self.warehouse,
+                             role=self.role,
+                             database=self.database_name,
+                             schema=self.schema_name).get_conn()
     
     def get_sql(self):
         if self.fields != None:
