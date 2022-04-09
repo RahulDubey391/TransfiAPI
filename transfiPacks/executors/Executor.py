@@ -34,6 +34,7 @@ class SnowflakeExecutor(SnowflakeConfig):
         df = cur.execute(sql)
         return df
 
+
 class SalesforceExecutor(SalesForceConfig):
     def __init__(self,configDict):
         super().__init__(configDict)
