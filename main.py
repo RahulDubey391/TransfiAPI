@@ -1,4 +1,4 @@
-from transfiPacks import BigQueryExecutor,SnowflakeExecutor,SalesforceExecutor
+from transfiPacks.executors.Executor import BigQueryExecutor,SnowflakeExecutor,SalesforceExecutor
 
 if __name__ == '__main__':
     config = {'Snowflake':{'conn_id':'','username':'','database_name':'ra','schema_name':'','table_name':''},

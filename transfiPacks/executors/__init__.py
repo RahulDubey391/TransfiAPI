@@ -1,1 +1,1 @@
-from .Executor import BigQueryExecutor,SnowflakeExecutor,SalesforceExecutor
+#from .Executor import BigQueryExecutor,SnowflakeExecutor,SalesforceExecutor
