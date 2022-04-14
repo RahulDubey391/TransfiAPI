@@ -14,6 +14,12 @@ class SnowflakeConfig:
         if 'columns' in self.sflkconfigDict.keys():
             self.fields = self.sflkconfigDict['columns']
         else:self.fields = None
+        if 'create' in self.sflkconfigDict.keys():
+            if self.sflkconfigDict['create'] != None:
+                self.create = True
+            else: self.create = False
+        else:self.create = False
+
 
     def __repr__(self):
         return '<SnowflakeConfig %s %s %s>'%(self.database_name,self.schema_name,self.table_name)
